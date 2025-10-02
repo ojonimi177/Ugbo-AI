@@ -1,0 +1,2567 @@
+{
+  "version": {
+    "_version": 13.03,
+    "autoSaveFromRestore": false,
+    "canvasTemplates": [],
+    "components": [],
+    "creatorID": 1805121,
+    "manualSave": false,
+    "model": {},
+    "name": "Initial Version",
+    "platformData": {
+      "slots": [],
+      "intents": [
+        {
+          "key": "None",
+          "name": "None",
+          "slots": [],
+          "inputs": [],
+          "noteID": null
+        }
+      ],
+      "settings": {
+        "restart": true,
+        "repeat": 100,
+        "locales": [
+          "en-US"
+        ],
+        "globalNoMatch": {
+          "type": "static",
+          "prompt": {
+            "content": [
+              {
+                "children": [
+                  {
+                    "text": "Sorry, I didn’t get that. Please try again."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "messageDelay": {
+          "durationMilliseconds": 500
+        },
+        "defaultVoice": "elevenlabs:eleven_turbo_v2_5:ZF6FPAbjXT4488VcRRnw",
+        "deepgramASR": {
+          "silenceWaitMS": 10,
+          "punctuationWaitMS": 200,
+          "partialWaitMS": 1000,
+          "interruptionWaitWords": 1,
+          "audioCue": null
+        }
+      },
+      "publishing": {
+        "avatar": "https://cdn.voiceflow.com/assets/logo.png",
+        "color": "#397DFF",
+        "description": "Hi, how can I help you today?",
+        "feedback": false,
+        "image": "https://cdn.voiceflow.com/assets/logo.png",
+        "persistence": "localStorage",
+        "position": "right",
+        "spacing": {
+          "side": 24,
+          "bottom": 24
+        },
+        "title": "Your AI agent",
+        "watermark": true,
+        "audioInterface": true
+      },
+      "platform": "webchat"
+    },
+    "programResources": {
+      "agents": {
+        "68dc88be06d442000740d8f6": {
+          "name": "Clarify farmer's request",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d8ff",
+              "name": "Fertilizer advice requested",
+              "variables": [],
+              "description": "The farmer is primarily seeking fertilizer guidance."
+            },
+            {
+              "id": "68dc88be06d442000740d900",
+              "name": "Weather prediction needed",
+              "variables": [],
+              "description": "The farmer asks about upcoming weather conditions."
+            },
+            {
+              "id": "68dc88be06d442000740d901",
+              "name": "Both fertilizer and weather advice needed",
+              "variables": [],
+              "description": "The farmer wants advice on both fertilizer and weather."
+            },
+            {
+              "id": "68dc88be06d442000740d902",
+              "name": "Unable to understand the request",
+              "variables": [],
+              "description": "The query is unclear or language is not understood."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Ask the farmer to describe, in their local language, their main concern: is it about fertilizer use, weather predictions, or both? Make sure to understand the specific crop and location involved.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": null,
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8f7": {
+          "name": "Provide fertilizer advice",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d903",
+              "name": "Advice delivered",
+              "variables": [],
+              "description": "Fertilizer advice was successfully provided."
+            },
+            {
+              "id": "68dc88be06d442000740d904",
+              "name": "Farmer requested more information",
+              "variables": [],
+              "description": "The farmer asks for deeper details, clarifications, or alternative options."
+            },
+            {
+              "id": "68dc88be06d442000740d905",
+              "name": "Farmer also wants weather info",
+              "variables": [],
+              "description": "Farmer additionally needs weather data."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Gather details on the crop type, growth stage, and local conditions from the farmer. Search the knowledge base for best fertilizer practices tailored to the crop and conditions. Present the most relevant, actionable advice, using simple, clear language.\n\nHere is the Information to draw from if the Knowledge Base is unavailable:\n\nPrimary Macronutrient Fertilizers (NPK)\n1. Nitrogen-Based Fertilizers (N) 🌿\nNitrogen promotes rapid vegetative growth and is essential for forming proteins and chlorophyll.\n\nUrea (CO(NH \n2\n​\n ) \n2\n​\n )\n\nType: Inorganic, High-N (46-0-0).\n\nCrops/Uses: Cereals (corn, wheat, rice), sugarcane, cotton, and leafy vegetables. Best for promoting green, leafy growth.\n\nApplication: Broadcasting and immediate soil incorporation (to prevent NH \n3\n​\n  loss), Side-dressing for a mid-season boost, or Fertigation.\n\nAmmonium Nitrate (AN) (NH \n4\n​\n NO \n3\n​\n )\n\nType: Inorganic, N-based. Provides both fast-acting (nitrate) and slower-release (ammonium) N.\n\nCrops/Uses: Corn, pastures, and cool-season vegetables—crops with high nitrogen demand.\n\nApplication: Broadcasting or Side-dressing. Fast-acting due to high water solubility.\n\nBlood Meal\n\nType: Organic, N-based. Releases nitrogen slowly as it breaks down.\n\nCrops/Uses: Leafy vegetables and heavy feeders needing a consistent organic N boost.\n\nApplication: Top-dressed or Side-dressed and lightly worked into the soil.\n\n2. Phosphorus-Based Fertilizers (P) 🥕\nPhosphorus is vital for root development, early growth, flowering, and fruiting.\n\nDiammonium Phosphate (DAP) (NH \n4\n​\n ) \n2\n​\n HPO \n4\n​\n \n\nType: Inorganic, Multi-nutrient (NP, e.g., 18-46-0).\n\nCrops/Uses: Virtually all crops, crucial at the time of planting to stimulate strong root systems.\n\nApplication: Band placement (near the seed line but not touching it) or Broadcasting and incorporating into the soil before planting.\n\nTriple Superphosphate (TSP) (Ca(H \n2\n​\n PO \n4\n​\n ) \n2\n​\n )\n\nType: Inorganic, P-based. Highly concentrated source of phosphorus.\n\nCrops/Uses: All crops, specifically to correct phosphorus deficiencies and enhance root establishment.\n\nApplication: Broadcasting or Band placement before planting due to its low mobility in the soil.\n\nBone Meal\n\nType: Organic, P-based. Very slow-release.\n\nCrops/Uses: Root vegetables, bulbs, flowering plants, and perennials. Excellent for long-term P supply.\n\nApplication: Base dressing (mixed into the planting soil) or placed in the hole before planting.\n\n3. Potassium-Based Fertilizers (K) 🍎\nPotassium improves water use efficiency, disease resistance, stalk strength, and enhances the quality of fruit, seeds, and tubers.\n\nPotassium Chloride / Muriate of Potash (MOP) (KCl)\n\nType: Inorganic, High-K (e.g., 0-0-60). The most common K source.\n\nCrops/Uses: Grains (corn, wheat), potatoes, and cotton. Generally used for field crops needing high K.\n\nApplication: Broadcasting and incorporating before planting. Use with caution on chloride-sensitive crops.\n\nPotassium Sulfate / Sulfate of Potash (SOP) (K \n2\n​\n SO \n4\n​\n )\n\nType: Inorganic, Multi-nutrient (K and Sulfur, S).\n\nCrops/Uses: High-value crops, fruits, vegetables (tomatoes, berries, tobacco), and any crop sensitive to chloride.\n\nApplication: Broadcasting, Side-dressing, or Fertigation.\n\nOrganic and Multi-Purpose Fertilizers 🌻\nThese materials improve soil structure and gradually release a spectrum of nutrients.\n\nFarm Yard Manure (FYM)\n\nType: Organic (mixed animal waste and bedding).\n\nCrops/Uses: General soil conditioning for almost all field and horticultural crops. Improves soil structure and water retention.\n\nApplication: Broadcasting and incorporating deeply into the soil during land preparation. Must be aged/composted to prevent plant damage.\n\nCompost\n\nType: Organic (decomposed plant and food matter).\n\nCrops/Uses: Gardens, vegetables, and ornamental plants. Focuses on soil health and slow-release feeding.\n\nApplication: Incorporated into the planting soil (base dressing) or applied as a Top-dressing (mulch) around established plants.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [
+            {
+              "variables": {},
+              "description": null,
+              "integrationToolID": "68dc8e130042a1d72ccb781f"
+            }
+          ],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8f8": {
+          "name": "Deliver weather prediction",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d906",
+              "name": "Prediction delivered",
+              "variables": [],
+              "description": "Weather forecast is provided, and the inquiry is complete."
+            },
+            {
+              "id": "68dc88be06d442000740d907",
+              "name": "Farmer requested more information",
+              "variables": [],
+              "description": "Farmer asks for more granular weather or impact insights."
+            },
+            {
+              "id": "68dc88be06d442000740d908",
+              "name": "Farmer also needs fertilizer advice",
+              "variables": [],
+              "description": "Farmer would also like fertilizer advice."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Gather the farmer's location and timeframe of interest. Search the knowledge base for local weather data and short-term forecasts. Communicate the prediction clearly, explaining any implications for farming activities.\n\nIn the event that the knowledge base does not produce anything, use the following information instead : \n\n5-Day Weather Outlook and Agricultural Recommendations for Nigeria (Oct 1 - Oct 5)\n1. South (Coastal/Rainforest Zone, e.g., Lagos, Port Harcourt)\nConditions: Expect frequent rain, scattered showers, and thunderstorms for most of the period. Skies will be mostly cloudy.\n\nTemperatures: Highs: 29 \n∘\n C to 33 \n∘\n C (84 \n∘\n F to 91 \n∘\n F); Lows: 22 \n∘\n C to 25 \n∘\n C (72 \n∘\n F to 77 \n∘\n F).\n\nKey Feature: Very high humidity with high 'RealFeel' temperatures.\n\nAgricultural Recommendations (Late Rainy Season):\n\nFocus on Drainage: With continuous rainfall, ensure existing drainage channels are clear to prevent waterlogging, which can damage tubers (yams, cassava) and promote root rot.\n\nPest & Disease Management: High humidity favors fungal diseases (e.g., Black Pod in Cocoa) and pests. Intensify monitoring and proactive, systemic treatment for established tree crops.\n\nHarvesting: Accelerate the harvest of early-planted maize, rice, and vegetables to avoid spoilage from excessive moisture and sun-dry them quickly during any breaks in the rain.\n\nPlanting: Consider planting late-season, fast-maturing leafy vegetables (e.g., fluted pumpkin leaves) and preparing for the upcoming dry season planting of peppers and tomatoes.\n\n2. Middle Belt (Savannah Zone, e.g., Abuja, Benue)\nConditions: The forecast calls for isolated to scattered thunderstorms and moderate rain daily, particularly in the afternoons and evenings.\n\nTemperatures: Highs: 28 \n∘\n C to 31 \n∘\n C (82 \n∘\n F to 88 \n∘\n F); Lows: 21 \n∘\n C to 23 \n∘\n C (70 \n∘\n F to 73 \n∘\n F).\n\nKey Feature: The rainy season is tapering off, but downpours and possible flooding remain a risk.\n\nAgricultural Recommendations (Transition Period):\n\nHarvest & Storage: This is the prime period for harvesting main-season crops like sorghum, millet, and late-planted maize. Prioritize drying and safe storage to prevent post-harvest loss due to mold and pests.\n\nSoil Conservation: As rainfall becomes less frequent, apply mulch (crop residue, straw) to conserve residual soil moisture and protect the soil from direct sun exposure, preparing the land for the dry season.\n\nPlanting: Begin land preparation for irrigated, dry-season crops. Plant short-cycle, high-value vegetables (onions, pepper, tomatoes) only if you have access to a reliable irrigation source (wells, streams).\n\n3. North (Sahel/Semi-Arid Zone, e.g., Kano, Kaduna)\nConditions: The chance of rain is lower, with isolated storms still possible on some days. Expect more breaks in the cloud cover.\n\nTemperatures: This area will be the hottest. Highs: 31 \n∘\n C to 35 \n∘\n C (88 \n∘\n F to 95 \n∘\n F); Lows: 20 \n∘\n C to 23 \n∘\n C (68 \n∘\n F to 73 \n∘\n F).\n\nKey Feature: Rapid transition to the hot, dry season is underway.\n\nAgricultural Recommendations (Early Dry Season):\n\nHarvesting: Conclude all main-season harvest activities for drought-resistant crops like millet, sorghum, and groundnuts (peanuts). Ensure thorough drying under the increasing sun before shelling or storing.\n\nIrrigation Setup: Immediate focus on dry season farming. Inspect, repair, or install irrigation systems (drip or furrow irrigation) for vegetable plots. Without irrigation, no new planting is advised.\n\nDry Season Crops: Plant high-demand, high-value dry season crops immediately, such as onions, carrots, Irish potatoes, tomato varieties (that are heat-tolerant), and cowpea (beans).\n\nWater Management: Prioritize the use of mulching and efficient water delivery (like drip irrigation) to maximize the use of limited water resources.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8f9": {
+          "name": "Provide extra fertilizer information",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d909",
+              "name": "More advice delivered",
+              "variables": [],
+              "description": "Extra fertilizer information was given successfully."
+            },
+            {
+              "id": "68dc88be06d442000740d90a",
+              "name": "Farmer still not satisfied",
+              "variables": [],
+              "description": "Farmer is still confused or unsatisfied, or no more info can be provided."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Use follow-up questions and additional knowledge base research to give further fertilizer guidance. Adapt advice to unique local or crop factors, if the farmer mentions them.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8fa": {
+          "name": "Provide extra weather information",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d90b",
+              "name": "More weather info delivered",
+              "variables": [],
+              "description": "Further weather information provided to farmer's satisfaction."
+            },
+            {
+              "id": "68dc88be06d442000740d90c",
+              "name": "Farmer still not satisfied",
+              "variables": [],
+              "description": "Farmer is still unsatisfied or request cannot be fulfilled."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Ask for specifics on what more weather information is needed (timing, warnings, historical trends, etc.). Retrieve or summarize the requested knowledge, focusing on farm use.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8fb": {
+          "name": "Routing for combined advice",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d90d",
+              "name": "Start with fertilizer advice",
+              "variables": [],
+              "description": "Begin by providing fertilizer guidance."
+            },
+            {
+              "id": "68dc88be06d442000740d90e",
+              "name": "Start with weather prediction",
+              "variables": [],
+              "description": "Begin by delivering weather information."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "The farmer wants both fertilizer advice and weather information. Determine which to prioritize. Ask the farmer which topic is more urgent, or address fertilizer first by default if uncertain.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": null,
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8fc": {
+          "name": "Unable to understand farmer's request",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d90f",
+              "name": "End flow",
+              "variables": [],
+              "description": "Conversation ends after expressing inability to help."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Inform the farmer, in simple language, that the request could not be understood and recommend restating it more clearly or seeking local agricultural help.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": null,
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8fd": {
+          "name": "Unable to help further",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d910",
+              "name": "End flow",
+              "variables": [],
+              "description": "Conversation ends after expressing the limits of advice."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Tell the farmer, in an empathetic tone, that no more information can be provided, and suggest seeking local agricultural extension support.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": null,
+          "mcpIntegrationTools": []
+        },
+        "68dc88be06d442000740d8fe": {
+          "name": "Advice delivered successfully",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68dc88be06d442000740d911",
+              "name": "End the conversation",
+              "variables": [],
+              "description": "Farmer has received all requested advice and the session is complete."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Thank the farmer for calling, invite them to reach out again any time, and wish them a successful season.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": null,
+          "mcpIntegrationTools": []
+        }
+      },
+      "prompts": {},
+      "apiTools": {},
+      "messages": {},
+      "integrationTools": {
+        "68dc8e130042a1d72ccb781f": {
+          "name": "Get record",
+          "toolName": "airtable_get_record",
+          "description": "Get a specific record from an Airtable table.",
+          "toolProvider": "airtable"
+        }
+      },
+      "mcpIntegrationTools": {}
+    },
+    "prototype": {
+      "type": "chat",
+      "data": {
+        "name": "AI farming advisor for small farmers",
+        "locales": [
+          "en-US"
+        ]
+      },
+      "model": {
+        "intents": [],
+        "slots": []
+      },
+      "context": {
+        "stack": [
+          {
+            "diagramID": "68dc88be06d442000740d912",
+            "storage": {},
+            "variables": {}
+          }
+        ],
+        "variables": {}
+      },
+      "surveyorContext": {
+        "nonDraftResponsesMap": {},
+        "responseMessagesByDiscriminatorIDMap": {},
+        "responseDiscriminatorsByResponseIDMap": {},
+        "agentMcpIntegrationToolsByAgentIDMap": {},
+        "functionDefinitions": {},
+        "referencedResponseIDs": [],
+        "referencedAgentsIDs": [
+          "68dc88be06d442000740d8f6",
+          "68dc88be06d442000740d8f7",
+          "68dc88be06d442000740d8f8",
+          "68dc88be06d442000740d8f9",
+          "68dc88be06d442000740d8fa",
+          "68dc88be06d442000740d8fb",
+          "68dc88be06d442000740d8fc",
+          "68dc88be06d442000740d8fd",
+          "68dc88be06d442000740d8fe"
+        ],
+        "referencedAPIToolIDs": [],
+        "referencedIntegrationToolIDs": [
+          "68dc8e130042a1d72ccb781f"
+        ],
+        "slotsMap": {},
+        "platform": "webchat",
+        "products": {},
+        "extraSlots": [],
+        "interfaces": [],
+        "permissions": [],
+        "projectType": "chat",
+        "extraIntents": [],
+        "usedEventsSet": [],
+        "usedIntentsSet": [],
+        "goToIntentsSet": [],
+        "entitiesMap": {},
+        "variableMap": {},
+        "intentsMap": {},
+        "requiredEntitiesMap": {},
+        "eventsMap": {},
+        "cmsVariables": {
+          "sessions": {
+            "isSystem": true,
+            "description": "The number of times a particular user has opened the app.",
+            "defaultValue": null
+          },
+          "user_id": {
+            "isSystem": true,
+            "description": "The user's unique ID.",
+            "defaultValue": null
+          },
+          "timestamp": {
+            "isSystem": true,
+            "description": "UNIX timestamp (number of seconds since January 1st, 1970 at UTC).",
+            "defaultValue": null
+          },
+          "platform": {
+            "isSystem": true,
+            "description": "The platform your agent is running on (e.g. \"voiceflow\").",
+            "defaultValue": null
+          },
+          "locale": {
+            "isSystem": true,
+            "description": "The locale of the user (eg. en-US, en-CA, it-IT, fr-FR, ...).",
+            "defaultValue": null
+          },
+          "intent_confidence": {
+            "isSystem": true,
+            "description": "The confidence interval (measured as a value from 0 to 100) for the most recently matched intent.",
+            "defaultValue": null
+          },
+          "last_response": {
+            "isSystem": true,
+            "description": "The agent's last response (text/speak) in a string.",
+            "defaultValue": null
+          },
+          "last_event": {
+            "isSystem": true,
+            "description": "The object containing the last event that the user client has triggered.",
+            "defaultValue": null
+          },
+          "last_utterance": {
+            "isSystem": true,
+            "description": "The user's last utterance in a text string.",
+            "defaultValue": null
+          },
+          "vf_memory": {
+            "isSystem": true,
+            "description": "Last 10 user inputs and agent responses in a string (e.g. \"agent: How can i help?\"\nuser: What's the weather today?).",
+            "defaultValue": null
+          }
+        },
+        "cmsEntities": {}
+      },
+      "settings": {},
+      "platform": "webchat"
+    },
+    "settings": {
+      "voice": {
+        "tts": {
+          "provider": "elevenlabs",
+          "model": "eleven_turbo_v2_5",
+          "voice": "ZF6FPAbjXT4488VcRRnw",
+          "settings": {
+            "speed": 1.2
+          }
+        },
+        "failureMessage": "We’re sorry, but the call cannot be completed at this time. Please try again later.",
+        "hasCallRecording": true
+      },
+      "widget": {
+        "type": "chat",
+        "chat": {
+          "voiceInput": true,
+          "voiceOutput": true,
+          "renderMode": "widget",
+          "headerImage": {
+            "enabled": true
+          },
+          "agentImage": {
+            "enabled": false
+          },
+          "banner": {
+            "title": "Your AI agent",
+            "description": "How can I help you today?",
+            "enabled": true
+          },
+          "placeholderText": "Message...",
+          "disclaimer": {
+            "enabled": false,
+            "title": "Privacy notice",
+            "description": "Before we can proceed with your conversation, we kindly ask you to review and accept our privacy policy, outlining how we handle and protect your personal information throughout our services.",
+            "primaryButtonText": "Submit",
+            "secondaryButtonText": "Privacy policy",
+            "secondaryButtonURL": ""
+          },
+          "aiDisclaimer": {
+            "text": "Generated by AI, double-check for accuracy.",
+            "enabled": false
+          },
+          "handoffToAgentImageURL": ""
+        },
+        "voice": {
+          "renderMode": "full",
+          "content": {
+            "talkingText": "Talk to interrupt",
+            "endButtonText": "End",
+            "listeningText": "Listening...",
+            "startButtonText": "Start a call",
+            "callToActionText": "How can I help you?"
+          }
+        },
+        "common": {
+          "sideSpacing": "20",
+          "bottomSpacing": "20",
+          "position": "right",
+          "fontFamily": "UCity Pro",
+          "primaryColor": {
+            "color": "#397DFF",
+            "palette": {
+              "50": "#E7F5FD",
+              "100": "#C6E4FB",
+              "200": "#A2D2FA",
+              "300": "#87BFFB",
+              "400": "#659FFD",
+              "500": "#397DFF",
+              "600": "#2F68DB",
+              "700": "#264EB4",
+              "800": "#1C368E",
+              "900": "#0F1E61"
+            }
+          },
+          "poweredBy": true,
+          "launcher": {
+            "type": "both",
+            "text": "Test your agent"
+          },
+          "footerLink": {
+            "enabled": false
+          },
+          "persistence": "localStorage"
+        },
+        "security": {
+          "approvedDomains": {
+            "enabled": false,
+            "domains": ""
+          },
+          "disableTranscript": false
+        }
+      },
+      "memory": {
+        "turns": 50
+      },
+      "llmFallback": {
+        "models": {
+          "open-ai": {
+            "*": {
+              "provider": "anthropic",
+              "model": "claude-4-sonnet"
+            }
+          },
+          "anthropic": {
+            "*": {
+              "provider": "open-ai",
+              "model": "gpt-4.1-2025-04-14"
+            }
+          },
+          "groq": {
+            "*": {
+              "provider": "anthropic",
+              "model": "claude-4-sonnet"
+            }
+          },
+          "google": {
+            "*": {
+              "provider": "anthropic",
+              "model": "claude-4-sonnet"
+            }
+          }
+        }
+      },
+      "globalNoMatch": {
+        "type": "static",
+        "prompt": [
+          {
+            "text": [
+              "Sorry, I didn’t get that. Please try again."
+            ]
+          }
+        ]
+      },
+      "intentClassification": {
+        "type": "rag",
+        "params": {
+          "model": "claude-3.5-haiku",
+          "temperature": 0.1
+        },
+        "promptWrapper": null
+      }
+    },
+    "topics": [
+      {
+        "type": "DIAGRAM",
+        "sourceID": "64dbb6696a8fab0013dba194"
+      }
+    ],
+    "variables": [
+      "sessions",
+      "user_id",
+      "timestamp",
+      "platform",
+      "locale",
+      "intent_confidence",
+      "last_response",
+      "last_event",
+      "last_utterance",
+      "vf_memory"
+    ],
+    "_id": "68dc88be8cbf90eed6791645",
+    "updatedAt": "2025-10-01T05:18:36.884Z",
+    "publishedAt": "2024-09-27T16:54:27.996Z",
+    "domains": [
+      {
+        "id": "cla06iyr900b206pkh8d4ap8n",
+        "name": "Home",
+        "live": true,
+        "topicIDs": [
+          "64dbb6696a8fab0013dba194"
+        ],
+        "rootDiagramID": "64dbb6696a8fab0013dba194",
+        "updatedBy": 1805121,
+        "updatedAt": "2025-10-01T01:49:50.631Z"
+      }
+    ],
+    "projectID": "68dc88be8cbf90eed6791644",
+    "rootDiagramID": "68dc88be06d442000740d912",
+    "templateDiagramID": "64dbb6696a8fab0013dba195"
+  },
+  "diagrams": {
+    "68dc88be06d442000740d912": {
+      "name": "AI farming advisor for small farmers",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "68dc88af06d442000740d8d5": {
+          "nodeID": "68dc88af06d442000740d8d5",
+          "type": "start",
+          "data": {
+            "name": "Start",
+            "color": "#56b365",
+            "triggers": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "68dc88af06d442000740d8d6",
+                  "type": "next",
+                  "data": {},
+                  "target": "cmg7bwnzh04cm070vcumz8b2p"
+                }
+              },
+              "dynamic": []
+            },
+            "steps": []
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmg7bwnzh04cv070v3e1p0owe": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04cv070v3e1p0owe",
+          "data": {
+            "agentID": "68dc88be06d442000740d8f6",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d8ff": {
+                  "id": "68dc88be06d442000740d8ff",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          596,
+                          198
+                        ]
+                      },
+                      {
+                        "point": [
+                          645.5,
+                          198
+                        ]
+                      },
+                      {
+                        "point": [
+                          645.5,
+                          27
+                        ]
+                      },
+                      {
+                        "point": [
+                          695,
+                          27
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cn070v478b4gmi"
+                },
+                "68dc88be06d442000740d900": {
+                  "id": "68dc88be06d442000740d900",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          596,
+                          252
+                        ]
+                      },
+                      {
+                        "point": [
+                          648.83,
+                          252
+                        ]
+                      },
+                      {
+                        "point": [
+                          648.83,
+                          433.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          701.67,
+                          433.67
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04co070vgtmcfxxl"
+                },
+                "68dc88be06d442000740d901": {
+                  "id": "68dc88be06d442000740d901",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          596,
+                          314
+                        ]
+                      },
+                      {
+                        "point": [
+                          653.83,
+                          314
+                        ]
+                      },
+                      {
+                        "point": [
+                          653.83,
+                          840.33
+                        ]
+                      },
+                      {
+                        "point": [
+                          711.67,
+                          840.33
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cr070v6bpv0ll9"
+                },
+                "68dc88be06d442000740d902": {
+                  "id": "68dc88be06d442000740d902",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          596,
+                          384
+                        ]
+                      },
+                      {
+                        "point": [
+                          645.5,
+                          384
+                        ]
+                      },
+                      {
+                        "point": [
+                          645.5,
+                          1187
+                        ]
+                      },
+                      {
+                        "point": [
+                          695,
+                          1187
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cs070v8zot38lc"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmg7bwnzh04cw070vg5zfdw85": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04cw070vg5zfdw85",
+          "data": {
+            "agentID": "68dc88be06d442000740d8f7",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d903": {
+                  "id": "68dc88be06d442000740d903",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1026,
+                          198
+                        ]
+                      },
+                      {
+                        "point": [
+                          1083.46,
+                          198
+                        ]
+                      },
+                      {
+                        "point": [
+                          1083.46,
+                          783.73
+                        ]
+                      },
+                      {
+                        "point": [
+                          1140.92,
+                          783.73
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cu070v1r5k19we"
+                },
+                "68dc88be06d442000740d904": {
+                  "id": "68dc88be06d442000740d904",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1026,
+                          260
+                        ]
+                      },
+                      {
+                        "point": [
+                          1075.5,
+                          260
+                        ]
+                      },
+                      {
+                        "point": [
+                          1075.5,
+                          27
+                        ]
+                      },
+                      {
+                        "point": [
+                          1125,
+                          27
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cp070vfg4ldsk2"
+                },
+                "68dc88be06d442000740d905": {
+                  "id": "68dc88be06d442000740d905",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1026,
+                          330
+                        ]
+                      },
+                      {
+                        "point": [
+                          1050,
+                          330
+                        ]
+                      },
+                      {
+                        "point": [
+                          1050,
+                          382.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          866.67,
+                          382.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          866.67,
+                          406.67
+                        ],
+                        "toTop": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04co070vgtmcfxxl"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmg7bwnzh04cx070vc1ag7nti": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04cx070vc1ag7nti",
+          "data": {
+            "agentID": "68dc88be06d442000740d8f8",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d906": {
+                  "id": "68dc88be06d442000740d906",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1032.67,
+                          604.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          1086.79,
+                          604.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          1086.79,
+                          783.73
+                        ]
+                      },
+                      {
+                        "point": [
+                          1140.92,
+                          783.73
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cu070v1r5k19we"
+                },
+                "68dc88be06d442000740d907": {
+                  "id": "68dc88be06d442000740d907",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1032.67,
+                          666.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          1089.85,
+                          666.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          1089.85,
+                          402.31
+                        ]
+                      },
+                      {
+                        "point": [
+                          1147.04,
+                          402.31
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cq070vea4rhpmo"
+                },
+                "68dc88be06d442000740d908": {
+                  "id": "68dc88be06d442000740d908",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          700.67,
+                          736.67
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          671,
+                          736.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          671,
+                          27
+                        ]
+                      },
+                      {
+                        "point": [
+                          695,
+                          27
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cn070v478b4gmi"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cy070v0wpc1kdb": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04cy070v0wpc1kdb",
+          "data": {
+            "agentID": "68dc88be06d442000740d8f9",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d909": {
+                  "id": "68dc88be06d442000740d909",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1456,
+                          217
+                        ]
+                      },
+                      {
+                        "point": [
+                          1480,
+                          217
+                        ]
+                      },
+                      {
+                        "point": [
+                          1480,
+                          486.87
+                        ]
+                      },
+                      {
+                        "point": [
+                          1305.92,
+                          486.87
+                        ]
+                      },
+                      {
+                        "point": [
+                          1305.92,
+                          756.73
+                        ],
+                        "toTop": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cu070v1r5k19we"
+                },
+                "68dc88be06d442000740d90a": {
+                  "id": "68dc88be06d442000740d90a",
+                  "type": "",
+                  "data": {},
+                  "target": null
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cz070v9xth7qv0": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04cz070v9xth7qv0",
+          "data": {
+            "agentID": "68dc88be06d442000740d8fa",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d90b": {
+                  "id": "68dc88be06d442000740d90b",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1146.04,
+                          600.31
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1122.04,
+                          600.31
+                        ]
+                      },
+                      {
+                        "point": [
+                          1122.04,
+                          725.31
+                        ]
+                      },
+                      {
+                        "point": [
+                          1305.92,
+                          725.31
+                        ]
+                      },
+                      {
+                        "point": [
+                          1305.92,
+                          756.73
+                        ],
+                        "toTop": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cu070v1r5k19we"
+                },
+                "68dc88be06d442000740d90c": {
+                  "id": "68dc88be06d442000740d90c",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1478.04,
+                          662.31
+                        ]
+                      },
+                      {
+                        "point": [
+                          1516.52,
+                          662.31
+                        ]
+                      },
+                      {
+                        "point": [
+                          1516.52,
+                          27
+                        ]
+                      },
+                      {
+                        "point": [
+                          1555,
+                          27
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04ct070v6wn3b5kg"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04d0070v3k5p6ea3": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04d0070v3k5p6ea3",
+          "data": {
+            "agentID": "68dc88be06d442000740d8fb",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d90d": {
+                  "id": "68dc88be06d442000740d90d",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          710.67,
+                          1011.33
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          671,
+                          1011.33
+                        ]
+                      },
+                      {
+                        "point": [
+                          671,
+                          27
+                        ]
+                      },
+                      {
+                        "point": [
+                          695,
+                          27
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04cn070v478b4gmi"
+                },
+                "68dc88be06d442000740d90e": {
+                  "id": "68dc88be06d442000740d90e",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          710.67,
+                          1073.33
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          677.67,
+                          1073.33
+                        ]
+                      },
+                      {
+                        "point": [
+                          677.67,
+                          433.67
+                        ]
+                      },
+                      {
+                        "point": [
+                          701.67,
+                          433.67
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmg7bwnzh04co070vgtmcfxxl"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04d1070vau7690dq": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04d1070vau7690dq",
+          "data": {
+            "agentID": "68dc88be06d442000740d8fc",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d90f": {
+                  "id": "68dc88be06d442000740d90f",
+                  "type": "",
+                  "data": {},
+                  "target": null
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04d2070vgmdefyvx": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04d2070vgmdefyvx",
+          "data": {
+            "agentID": "68dc88be06d442000740d8fd",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d910": {
+                  "id": "68dc88be06d442000740d910",
+                  "type": "",
+                  "data": {},
+                  "target": null
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04d3070v94whanh2": {
+          "type": "agent",
+          "nodeID": "cmg7bwnzh04d3070v94whanh2",
+          "data": {
+            "agentID": "68dc88be06d442000740d8fe",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68dc88be06d442000740d911": {
+                  "id": "68dc88be06d442000740d911",
+                  "type": "",
+                  "data": {},
+                  "target": null
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cm070vcumz8b2p": {
+          "type": "block",
+          "coords": [
+            430,
+            0
+          ],
+          "nodeID": "cmg7bwnzh04cm070vcumz8b2p",
+          "data": {
+            "name": "Clarify farmer's request",
+            "color": "#A1ADBA",
+            "steps": [
+              "cmg7bwnzh04cv070v3e1p0owe"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cn070v478b4gmi": {
+          "type": "block",
+          "coords": [
+            860,
+            0
+          ],
+          "nodeID": "cmg7bwnzh04cn070v478b4gmi",
+          "data": {
+            "name": "Provide fertilizer advice",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmg7bwnzh04cw070vg5zfdw85"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmg7bwnzh04co070vgtmcfxxl": {
+          "type": "block",
+          "coords": [
+            866.6666666666667,
+            406.66666666666674
+          ],
+          "nodeID": "cmg7bwnzh04co070vgtmcfxxl",
+          "data": {
+            "name": "Deliver weather prediction",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmg7bwnzh04cx070vc1ag7nti"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cp070vfg4ldsk2": {
+          "type": "block",
+          "coords": [
+            1290,
+            0
+          ],
+          "nodeID": "cmg7bwnzh04cp070vfg4ldsk2",
+          "data": {
+            "name": "Provide extra fertilizer information",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmg7bwnzh04cy070v0wpc1kdb"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmg7bwnzh04cq070vea4rhpmo": {
+          "type": "block",
+          "coords": [
+            1312.0408163265301,
+            375.3061224489796
+          ],
+          "nodeID": "cmg7bwnzh04cq070vea4rhpmo",
+          "data": {
+            "name": "Provide extra weather information",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmg7bwnzh04cz070v9xth7qv0"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cr070v6bpv0ll9": {
+          "type": "block",
+          "coords": [
+            876.6666666666669,
+            813.3333333333334
+          ],
+          "nodeID": "cmg7bwnzh04cr070v6bpv0ll9",
+          "data": {
+            "name": "Routing for combined advice",
+            "color": "#A1ADBA",
+            "steps": [
+              "cmg7bwnzh04d0070v3k5p6ea3"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmg7bwnzh04cs070v8zot38lc": {
+          "type": "block",
+          "coords": [
+            860,
+            1159.9999999999993
+          ],
+          "nodeID": "cmg7bwnzh04cs070v8zot38lc",
+          "data": {
+            "name": "Unable to understand farmer's request",
+            "color": "#CB627B",
+            "steps": [
+              "cmg7bwnzh04d1070vau7690dq"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04ct070v6wn3b5kg": {
+          "type": "block",
+          "coords": [
+            1720,
+            0
+          ],
+          "nodeID": "cmg7bwnzh04ct070v6wn3b5kg",
+          "data": {
+            "name": "Unable to help further",
+            "color": "#CB627B",
+            "steps": [
+              "cmg7bwnzh04d2070vgmdefyvx"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmg7bwnzh04cu070v1r5k19we": {
+          "type": "block",
+          "coords": [
+            1305.9183673469377,
+            756.7346938775506
+          ],
+          "nodeID": "cmg7bwnzh04cu070v1r5k19we",
+          "data": {
+            "name": "Advice delivered successfully",
+            "color": "#56b365",
+            "steps": [
+              "cmg7bwnzh04d3070v94whanh2"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        }
+      },
+      "offsetX": 560,
+      "offsetY": 300,
+      "modified": 1759283375,
+      "variables": [],
+      "creatorID": 1805121,
+      "_id": "68dc88be8cbf90eed6791647",
+      "diagramID": "68dc88be06d442000740d912",
+      "versionID": "68dc88be8cbf90eed6791645"
+    }
+  },
+  "flows": [],
+  "entities": [],
+  "entityVariants": [],
+  "intents": [
+    {
+      "id": "None",
+      "name": "None",
+      "createdByID": 1805121,
+      "folderID": null,
+      "description": null,
+      "automaticReprompt": false,
+      "entityOrder": [],
+      "automaticRepromptSettings": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "utterances": [],
+  "requiredEntities": [],
+  "folders": [],
+  "responses": [],
+  "responseMessages": [],
+  "responseDiscriminators": [],
+  "variables": [
+    {
+      "id": "sessions",
+      "name": "sessions",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "number",
+      "description": "The number of times a particular user has opened the app.",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "user_id",
+      "name": "user_id",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The user's unique ID.",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "timestamp",
+      "name": "timestamp",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "UNIX timestamp (number of seconds since January 1st, 1970 at UTC).",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "platform",
+      "name": "platform",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The platform your agent is running on (e.g. \"voiceflow\").",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "locale",
+      "name": "locale",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The locale of the user (eg. en-US, en-CA, it-IT, fr-FR, ...).",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "intent_confidence",
+      "name": "intent_confidence",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "number",
+      "description": "The confidence interval (measured as a value from 0 to 100) for the most recently matched intent.",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "last_response",
+      "name": "last_response",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The agent's last response (text/speak) in a string.",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "last_event",
+      "name": "last_event",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "any",
+      "description": "The object containing the last event that the user client has triggered.",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "last_utterance",
+      "name": "last_utterance",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The user's last utterance in a text string.",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "vf_memory",
+      "name": "vf_memory",
+      "createdByID": 1805121,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "Last 10 user inputs and agent responses in a string (e.g. \"agent: How can i help?\"\nuser: What's the weather today?).",
+      "defaultValue": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "workflows": [
+    {
+      "id": "66df755be937eb000784abb2",
+      "name": "Start workflow",
+      "createdByID": 1805121,
+      "folderID": null,
+      "status": null,
+      "isStart": true,
+      "diagramID": "68dc88be06d442000740d912",
+      "assigneeID": null,
+      "description": "",
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T05:16:56.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "attachments": [],
+  "cardButtons": [],
+  "prompts": [],
+  "promptMessages": [],
+  "events": [],
+  "agents": [
+    {
+      "id": "68dc88be06d442000740d8f6",
+      "name": "Clarify farmer's request",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Ask the farmer to describe, in their local language, their main concern: is it about fertilizer use, weather predictions, or both? Make sure to understand the specific crop and location involved."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d8ff",
+        "68dc88be06d442000740d900",
+        "68dc88be06d442000740d901",
+        "68dc88be06d442000740d902"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": null,
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8f7",
+      "name": "Provide fertilizer advice",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Gather details on the crop type, growth stage, and local conditions from the farmer. Search the knowledge base for best fertilizer practices tailored to the crop and conditions. Present the most relevant, actionable advice, using simple, clear language."
+          ]
+        },
+        {
+          "text": [
+            {
+              "text": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "text": [
+            "Here is the Information to draw from if the Knowledge Base is unavailable:"
+          ]
+        },
+        {
+          "text": [
+            {
+              "text": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "text": [
+            "Primary Macronutrient Fertilizers (NPK)\n1. Nitrogen-Based Fertilizers (N) 🌿\nNitrogen promotes rapid vegetative growth and is essential for forming proteins and chlorophyll.\n\nUrea (CO(NH \n2\n​\n ) \n2\n​\n )\n\nType: Inorganic, High-N (46-0-0).\n\nCrops/Uses: Cereals (corn, wheat, rice), sugarcane, cotton, and leafy vegetables. Best for promoting green, leafy growth.\n\nApplication: Broadcasting and immediate soil incorporation (to prevent NH \n3\n​\n  loss), Side-dressing for a mid-season boost, or Fertigation.\n\nAmmonium Nitrate (AN) (NH \n4\n​\n NO \n3\n​\n )\n\nType: Inorganic, N-based. Provides both fast-acting (nitrate) and slower-release (ammonium) N.\n\nCrops/Uses: Corn, pastures, and cool-season vegetables—crops with high nitrogen demand.\n\nApplication: Broadcasting or Side-dressing. Fast-acting due to high water solubility.\n\nBlood Meal\n\nType: Organic, N-based. Releases nitrogen slowly as it breaks down.\n\nCrops/Uses: Leafy vegetables and heavy feeders needing a consistent organic N boost.\n\nApplication: Top-dressed or Side-dressed and lightly worked into the soil.\n\n2. Phosphorus-Based Fertilizers (P) 🥕\nPhosphorus is vital for root development, early growth, flowering, and fruiting.\n\nDiammonium Phosphate (DAP) (NH \n4\n​\n ) \n2\n​\n HPO \n4\n​\n \n\nType: Inorganic, Multi-nutrient (NP, e.g., 18-46-0).\n\nCrops/Uses: Virtually all crops, crucial at the time of planting to stimulate strong root systems.\n\nApplication: Band placement (near the seed line but not touching it) or Broadcasting and incorporating into the soil before planting.\n\nTriple Superphosphate (TSP) (Ca(H \n2\n​\n PO \n4\n​\n ) \n2\n​\n )\n\nType: Inorganic, P-based. Highly concentrated source of phosphorus.\n\nCrops/Uses: All crops, specifically to correct phosphorus deficiencies and enhance root establishment.\n\nApplication: Broadcasting or Band placement before planting due to its low mobility in the soil.\n\nBone Meal\n\nType: Organic, P-based. Very slow-release.\n\nCrops/Uses: Root vegetables, bulbs, flowering plants, and perennials. Excellent for long-term P supply.\n\nApplication: Base dressing (mixed into the planting soil) or placed in the hole before planting.\n\n3. Potassium-Based Fertilizers (K) 🍎\nPotassium improves water use efficiency, disease resistance, stalk strength, and enhances the quality of fruit, seeds, and tubers.\n\nPotassium Chloride / Muriate of Potash (MOP) (KCl)\n\nType: Inorganic, High-K (e.g., 0-0-60). The most common K source.\n\nCrops/Uses: Grains (corn, wheat), potatoes, and cotton. Generally used for field crops needing high K.\n\nApplication: Broadcasting and incorporating before planting. Use with caution on chloride-sensitive crops.\n\nPotassium Sulfate / Sulfate of Potash (SOP) (K \n2\n​\n SO \n4\n​\n )\n\nType: Inorganic, Multi-nutrient (K and Sulfur, S).\n\nCrops/Uses: High-value crops, fruits, vegetables (tomatoes, berries, tobacco), and any crop sensitive to chloride.\n\nApplication: Broadcasting, Side-dressing, or Fertigation.\n\nOrganic and Multi-Purpose Fertilizers 🌻\nThese materials improve soil structure and gradually release a spectrum of nutrients.\n\nFarm Yard Manure (FYM)\n\nType: Organic (mixed animal waste and bedding).\n\nCrops/Uses: General soil conditioning for almost all field and horticultural crops. Improves soil structure and water retention.\n\nApplication: Broadcasting and incorporating deeply into the soil during land preparation. Must be aged/composted to prevent plant damage.\n\nCompost\n\nType: Organic (decomposed plant and food matter).\n\nCrops/Uses: Gardens, vegetables, and ornamental plants. Focuses on soil health and slow-release feeding.\n\nApplication: Incorporated into the planting soil (base dressing) or applied as a Top-dressing (mulch) around established plants."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d903",
+        "68dc88be06d442000740d904",
+        "68dc88be06d442000740d905"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T04:59:25.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8f8",
+      "name": "Deliver weather prediction",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Gather the farmer's location and timeframe of interest. Search the knowledge base for local weather data and short-term forecasts. Communicate the prediction clearly, explaining any implications for farming activities."
+          ]
+        },
+        {
+          "text": [
+            {
+              "text": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "text": [
+            "In the event that the knowledge base does not produce anything, use the following information instead : "
+          ]
+        },
+        {
+          "text": [
+            {
+              "text": [
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "text": [
+            "5-Day Weather Outlook and Agricultural Recommendations for Nigeria (Oct 1 - Oct 5)\n1. South (Coastal/Rainforest Zone, e.g., Lagos, Port Harcourt)\nConditions: Expect frequent rain, scattered showers, and thunderstorms for most of the period. Skies will be mostly cloudy.\n\nTemperatures: Highs: 29 \n∘\n C to 33 \n∘\n C (84 \n∘\n F to 91 \n∘\n F); Lows: 22 \n∘\n C to 25 \n∘\n C (72 \n∘\n F to 77 \n∘\n F).\n\nKey Feature: Very high humidity with high 'RealFeel' temperatures.\n\nAgricultural Recommendations (Late Rainy Season):\n\nFocus on Drainage: With continuous rainfall, ensure existing drainage channels are clear to prevent waterlogging, which can damage tubers (yams, cassava) and promote root rot.\n\nPest & Disease Management: High humidity favors fungal diseases (e.g., Black Pod in Cocoa) and pests. Intensify monitoring and proactive, systemic treatment for established tree crops.\n\nHarvesting: Accelerate the harvest of early-planted maize, rice, and vegetables to avoid spoilage from excessive moisture and sun-dry them quickly during any breaks in the rain.\n\nPlanting: Consider planting late-season, fast-maturing leafy vegetables (e.g., fluted pumpkin leaves) and preparing for the upcoming dry season planting of peppers and tomatoes.\n\n2. Middle Belt (Savannah Zone, e.g., Abuja, Benue)\nConditions: The forecast calls for isolated to scattered thunderstorms and moderate rain daily, particularly in the afternoons and evenings.\n\nTemperatures: Highs: 28 \n∘\n C to 31 \n∘\n C (82 \n∘\n F to 88 \n∘\n F); Lows: 21 \n∘\n C to 23 \n∘\n C (70 \n∘\n F to 73 \n∘\n F).\n\nKey Feature: The rainy season is tapering off, but downpours and possible flooding remain a risk.\n\nAgricultural Recommendations (Transition Period):\n\nHarvest & Storage: This is the prime period for harvesting main-season crops like sorghum, millet, and late-planted maize. Prioritize drying and safe storage to prevent post-harvest loss due to mold and pests.\n\nSoil Conservation: As rainfall becomes less frequent, apply mulch (crop residue, straw) to conserve residual soil moisture and protect the soil from direct sun exposure, preparing the land for the dry season.\n\nPlanting: Begin land preparation for irrigated, dry-season crops. Plant short-cycle, high-value vegetables (onions, pepper, tomatoes) only if you have access to a reliable irrigation source (wells, streams).\n\n3. North (Sahel/Semi-Arid Zone, e.g., Kano, Kaduna)\nConditions: The chance of rain is lower, with isolated storms still possible on some days. Expect more breaks in the cloud cover.\n\nTemperatures: This area will be the hottest. Highs: 31 \n∘\n C to 35 \n∘\n C (88 \n∘\n F to 95 \n∘\n F); Lows: 20 \n∘\n C to 23 \n∘\n C (68 \n∘\n F to 73 \n∘\n F).\n\nKey Feature: Rapid transition to the hot, dry season is underway.\n\nAgricultural Recommendations (Early Dry Season):\n\nHarvesting: Conclude all main-season harvest activities for drought-resistant crops like millet, sorghum, and groundnuts (peanuts). Ensure thorough drying under the increasing sun before shelling or storing.\n\nIrrigation Setup: Immediate focus on dry season farming. Inspect, repair, or install irrigation systems (drip or furrow irrigation) for vegetable plots. Without irrigation, no new planting is advised.\n\nDry Season Crops: Plant high-demand, high-value dry season crops immediately, such as onions, carrots, Irish potatoes, tomato varieties (that are heat-tolerant), and cowpea (beans).\n\nWater Management: Prioritize the use of mulching and efficient water delivery (like drip irrigation) to maximize the use of limited water resources."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d906",
+        "68dc88be06d442000740d907",
+        "68dc88be06d442000740d908"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T05:11:54.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8f9",
+      "name": "Provide extra fertilizer information",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Use follow-up questions and additional knowledge base research to give further fertilizer guidance. Adapt advice to unique local or crop factors, if the farmer mentions them."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d909",
+        "68dc88be06d442000740d90a"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8fa",
+      "name": "Provide extra weather information",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Ask for specifics on what more weather information is needed (timing, warnings, historical trends, etc.). Retrieve or summarize the requested knowledge, focusing on farm use."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d90b",
+        "68dc88be06d442000740d90c"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8fb",
+      "name": "Routing for combined advice",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "The farmer wants both fertilizer advice and weather information. Determine which to prioritize. Ask the farmer which topic is more urgent, or address fertilizer first by default if uncertain."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d90d",
+        "68dc88be06d442000740d90e"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": null,
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8fc",
+      "name": "Unable to understand farmer's request",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Inform the farmer, in simple language, that the request could not be understood and recommend restating it more clearly or seeking local agricultural help."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d90f"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": null,
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8fd",
+      "name": "Unable to help further",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Tell the farmer, in an empathetic tone, that no more information can be provided, and suggest seeking local agricultural extension support."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d910"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": null,
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    },
+    {
+      "id": "68dc88be06d442000740d8fe",
+      "name": "Advice delivered successfully",
+      "createdByID": 1805121,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 5000,
+        "temperature": 0.3,
+        "reasoningEffort": null
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Thank the farmer for calling, invite them to reach out again any time, and wish them a successful season."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68dc88be06d442000740d911"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": null,
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-10-01T01:49:51.000Z",
+      "updatedAt": "2025-10-01T01:49:51.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "agentAPITools": [],
+  "agentPathTools": [
+    {
+      "id": "68dc88be06d442000740d8ff",
+      "name": "Fertilizer advice requested",
+      "agentID": "68dc88be06d442000740d8f6",
+      "description": "The farmer is primarily seeking fertilizer guidance.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d900",
+      "name": "Weather prediction needed",
+      "agentID": "68dc88be06d442000740d8f6",
+      "description": "The farmer asks about upcoming weather conditions.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d901",
+      "name": "Both fertilizer and weather advice needed",
+      "agentID": "68dc88be06d442000740d8f6",
+      "description": "The farmer wants advice on both fertilizer and weather.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d902",
+      "name": "Unable to understand the request",
+      "agentID": "68dc88be06d442000740d8f6",
+      "description": "The query is unclear or language is not understood.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d903",
+      "name": "Advice delivered",
+      "agentID": "68dc88be06d442000740d8f7",
+      "description": "Fertilizer advice was successfully provided.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d904",
+      "name": "Farmer requested more information",
+      "agentID": "68dc88be06d442000740d8f7",
+      "description": "The farmer asks for deeper details, clarifications, or alternative options.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d905",
+      "name": "Farmer also wants weather info",
+      "agentID": "68dc88be06d442000740d8f7",
+      "description": "Farmer additionally needs weather data.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d906",
+      "name": "Prediction delivered",
+      "agentID": "68dc88be06d442000740d8f8",
+      "description": "Weather forecast is provided, and the inquiry is complete.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d907",
+      "name": "Farmer requested more information",
+      "agentID": "68dc88be06d442000740d8f8",
+      "description": "Farmer asks for more granular weather or impact insights.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d908",
+      "name": "Farmer also needs fertilizer advice",
+      "agentID": "68dc88be06d442000740d8f8",
+      "description": "Farmer would also like fertilizer advice.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d909",
+      "name": "More advice delivered",
+      "agentID": "68dc88be06d442000740d8f9",
+      "description": "Extra fertilizer information was given successfully.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d90a",
+      "name": "Farmer still not satisfied",
+      "agentID": "68dc88be06d442000740d8f9",
+      "description": "Farmer is still confused or unsatisfied, or no more info can be provided.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d90b",
+      "name": "More weather info delivered",
+      "agentID": "68dc88be06d442000740d8fa",
+      "description": "Further weather information provided to farmer's satisfaction.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d90c",
+      "name": "Farmer still not satisfied",
+      "agentID": "68dc88be06d442000740d8fa",
+      "description": "Farmer is still unsatisfied or request cannot be fulfilled.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d90d",
+      "name": "Start with fertilizer advice",
+      "agentID": "68dc88be06d442000740d8fb",
+      "description": "Begin by providing fertilizer guidance.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d90e",
+      "name": "Start with weather prediction",
+      "agentID": "68dc88be06d442000740d8fb",
+      "description": "Begin by delivering weather information.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d90f",
+      "name": "End flow",
+      "agentID": "68dc88be06d442000740d8fc",
+      "description": "Conversation ends after expressing inability to help.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d910",
+      "name": "End flow",
+      "agentID": "68dc88be06d442000740d8fd",
+      "description": "Conversation ends after expressing the limits of advice.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    },
+    {
+      "id": "68dc88be06d442000740d911",
+      "name": "End the conversation",
+      "agentID": "68dc88be06d442000740d8fe",
+      "description": "Farmer has received all requested advice and the session is complete.",
+      "variableOrder": [],
+      "createdAt": "2025-10-01T01:49:51.000Z"
+    }
+  ],
+  "agentFunctionTools": [],
+  "agentIntegrationTools": [
+    {
+      "id": "68dc8e130042a1d72ccb7820",
+      "agentID": "68dc88be06d442000740d8f7",
+      "description": null,
+      "inputVariables": {},
+      "captureResponse": null,
+      "captureInputVariables": null,
+      "integrationToolID": "68dc8e130042a1d72ccb781f",
+      "createdAt": "2025-10-01T02:12:36.000Z"
+    }
+  ],
+  "agentPathToolVariables": [],
+  "agentMcpIntegrationTools": [],
+  "apiTools": [
+    {
+      "id": "68dc897b0042a1d72ccb7785",
+      "name": "Dumpling AI",
+      "createdByID": 1805121,
+      "folderID": null,
+      "url": [
+        {
+          "text": [
+            "https://app.dumplingai.com/api/v1/search"
+          ]
+        }
+      ],
+      "body": {
+        "type": "form-data",
+        "formData": [
+          {
+            "id": "cmg7chx0m00if3585p7tqhpy5",
+            "key": "query",
+            "value": [
+              {
+                "text": [
+                  "Fertilizer_Information"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "cmg7chwby00id35851xzpyfhc",
+            "key": "scrapeResults",
+            "value": [
+              {
+                "text": [
+                  "true"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "image": null,
+      "headers": [
+        {
+          "id": "cmg7cerok00hr35854x85vwqn",
+          "key": "Content-Type",
+          "value": [
+            {
+              "text": [
+                "application/json"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cmg7ce7pb00hj35850tmg0q7k",
+          "key": "Authorization",
+          "value": [
+            {
+              "text": [
+                "Bearer  sk_FEKUuotzc3nvJy66cSPF73S3ePJDFsdKrIxz6N0CigbjOZG6\r\n"
+              ]
+            }
+          ]
+        }
+      ],
+      "httpMethod": "post",
+      "description": "",
+      "queryParameters": [],
+      "createdAt": "2025-10-01T01:53:00.000Z",
+      "updatedAt": "2025-10-01T02:11:27.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "apiToolInputVariables": [
+    {
+      "id": "68dc8cad0042a1d72ccb7812",
+      "name": "Fertilizer_Information",
+      "apiToolID": "68dc897b0042a1d72ccb7785",
+      "description": "Any request that has to do with fertilizers",
+      "createdAt": "2025-10-01T02:06:37.087Z"
+    }
+  ],
+  "integrationTools": [
+    {
+      "id": "68dc8e130042a1d72ccb781f",
+      "name": "Get record",
+      "createdByID": 1805121,
+      "folderID": null,
+      "toolName": "airtable_get_record",
+      "description": "Get a specific record from an Airtable table.",
+      "toolProvider": "airtable",
+      "createdAt": "2025-10-01T02:12:35.000Z",
+      "updatedAt": "2025-10-01T02:12:35.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "functions": [
+    {
+      "id": "68dc8f810042a1d72ccb782f",
+      "name": "Untitled function",
+      "createdByID": 1805121,
+      "folderID": null,
+      "code": "export default async function main(args) {\n  const { inputVars } = args;\n  const responseText = \"Hello World\";\n\n  return {\n    trace: [\n      {\n        type: \"text\",\n        payload: {\n          message: `${responseText}`,\n        },\n      },\n    ],\n  };\n}",
+      "image": null,
+      "description": null,
+      "pathOrder": [],
+      "createdAt": "2025-10-01T02:18:42.000Z",
+      "updatedAt": "2025-10-01T02:18:42.000Z",
+      "updatedByID": 1805121
+    }
+  ],
+  "functionPaths": [],
+  "functionVariables": [],
+  "mcpServers": [],
+  "mcpServerTools": [],
+  "mcpIntegrationTools": [],
+  "project": {
+    "type": "chat",
+    "name": "AI farming advisor for small farmers",
+    "image": "",
+    "teamID": "VzElMgrxkL",
+    "members": [],
+    "privacy": "private",
+    "platform": "webchat",
+    "_version": 1.2,
+    "linkType": "STRAIGHT",
+    "creatorID": 1805121,
+    "updatedBy": 1805121,
+    "apiPrivacy": "public",
+    "platformData": {
+      "invocationName": "template project general"
+    },
+    "customThemes": [],
+    "aiAssistSettings": {
+      "aiPlayground": true
+    },
+    "_id": "68dc88be8cbf90eed6791644",
+    "updatedAt": "2025-10-01T04:26:49.985Z",
+    "devVersion": "68dc88be8cbf90eed6791645",
+    "liveVersion": "68dc88be8cbf90eed6791646"
+  },
+  "_version": "1.2",
+  "secrets": [],
+  "variableStates": [],
+  "transcriptEvaluations": [
+    {
+      "name": "Deflection rate",
+      "default": true,
+      "description": null,
+      "type": "boolean",
+      "enabled": false,
+      "prompt": "Determine if the user requested to talk to a human in order to achieve their desired outcome.",
+      "settings": null,
+      "truePrompt": "The user did not require the need to talk to a human.",
+      "falsePrompt": "The user required the need to talk to a human agent."
+    },
+    {
+      "name": "Satisfaction score",
+      "default": true,
+      "description": null,
+      "type": "number",
+      "enabled": false,
+      "prompt": "Rate the user's overall satisfaction based on the conversation, using a scale from 1 to 5.",
+      "settings": null,
+      "minimumValue": 1,
+      "minimumPrompt": "Look for negative comments or expressions of dissatisfaction to rate the minimum satisfaction.",
+      "maximumValue": 5,
+      "maximumPrompt": "Identify any comments or phrases in the transcript that express the highest level of satisfaction."
+    },
+    {
+      "name": "AI summary",
+      "default": true,
+      "description": null,
+      "type": "string",
+      "enabled": false,
+      "prompt": "Look at the transcript and provide a brief summary of the conversation. Make sure to highlight the outcome of the conversation, and key moments or topics, and the overall tone of the customer.",
+      "settings": null
+    }
+  ]
+}
