@@ -1,2 +1,3 @@
 # Ugbo-AI
-An AI voice agent that helps farmers with farming advice
+Voice Farming Help 
+A voice-based AI system that helps Nigerian farmers with farming advice via phone calls in their native language.
